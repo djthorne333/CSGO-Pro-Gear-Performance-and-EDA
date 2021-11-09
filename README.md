@@ -1,4 +1,5 @@
 # CS:GO-Pro-Gear-Performance-Repo
+
 # Exploratory Data Analysis of Professional (CS:GO) Gamer's Gear and Settings, and Modeling Player Accuracy  Performance  
 
 
@@ -112,8 +113,7 @@ Mousepad speeds are written as float values, 1.0-6.0, while clusters are written
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*The following are features passing a chi2 test performed on all features created with respect to whether the player is above or below the median accuracy score of their role(awper/rifler). This displays all features scoring at most p-value=0.1. Note that 0.1 is slightly lenient and that chi2 tests are not reliable on features with fewer players. Some of these features contain only 3 players. Note also that many of the pairs of features created from frequent patterns implicitly describe other individual features, and that many of these features are correlated. A positive result means that over all players that use this feature, more of them are high-scorers than expected given the distributions. These features were used for feature selection during modeling. The visualization displays how many players score above/below the median accuracy of their role when using/not using each feature. Bin and cluster interpretation is written below.*  
 
     
-![image](https://user-images.githubusercontent.com/73368743/140816530-2f0c695f-1b5b-40ed-9968-44641f119b3a.png)
- 
+![image](https://user-images.githubusercontent.com/73368743/141010066-86f6fccf-a806-4a47-920b-96637aed050f.png)  
 
     
 **Bin Interpretation**: (bins are numbered starting from 1, 1<2<3)    
@@ -128,10 +128,10 @@ The logitech g pro x superlight falls into bins: wght1, length2, wdth2, hght2, v
 
 **Describing clusters:**      
 lower bin number are lower values  
-cluster 0: players that belong to: vol2, weight2, sens1, speed under 5, hrz1  
-cluster 1: players that belong to: vol2, weight2, sens2, speed 5, hrz1, more likely to use (1280x960, 4:03)  
-cluster 2: players that belong to: vol3, weight3, sens2, speed 5, hrz1, more likley to use (1024x768, 4:03)  
-Cluster 3: players that belong to: vol2, weight2, sens2, speed 5, hrz2     
+cluster 0: players that belong near: vol2, weight2, sens1, speed under 5, hrz1  
+cluster 1: players that belong near: vol2, weight2, sens2, speed 5, hrz1, more likely to use (1280x960, 4:03)  
+cluster 2: players that belong near: vol3, weight3, sens2, speed 5, hrz1, more likley to use (1024x768, 4:03)  
+Cluster 3: players that belong near: vol2, weight2, sens2, speed 5, hrz2     
 
   
 
@@ -172,8 +172,7 @@ Cluster 3: players that belong to: vol2, weight2, sens2, speed 5, hrz2
     Train Accuracy: 0.595
 
     *Random Forest, gridsearched parameters:*
-    Best Parameter: {'bootstrap': True, 'criterion': 'gini', 'max_depth': 5, 'max_features': 'auto', 
-    'min_samples_leaf': 5, 'min_samples_split': 3, 'n_estimators': 500}
+    Best Parameter: {'bootstrap': True, 'criterion': 'gini', 'max_depth': 5, 'max_features': 'auto', 'min_samples_leaf': 5, 'min_samples_split': 3, 'n_estimators': 500}
     Test Accuracy: 0.50
     Train Accuracy: N/A 
     
@@ -184,8 +183,7 @@ Cluster 3: players that belong to: vol2, weight2, sens2, speed 5, hrz2
     *Logistic Regression:*
     Test Accuracy: 0.672
     Train Accuracy: 0.678
-    Sfs chosen Features: ['Logitech G Pro X Superlight rifler', 'wght1+hrz1 rifler', '1 rifler', 'hght3 rifler', 
-    'hrz2 awper', '6.0 awper', 'Zowie G-SR awper', '3 awper']
+    Sfs chosen Features: ['Logitech G Pro X Superlight rifler', 'wght1+hrz1 rifler', '1 rifler', 'hght3 rifler', 'hrz2 awper', '6.0 awper', 'Zowie G-SR awper', '3 awper']
     Aproximate model coeeficients (taken from one cv run):
     (0.37847194  0.20237742  0.48302971 -0.92805684 -0.56933603 -0.72778813 1.0131123  -0.56933603)
     
@@ -193,8 +191,7 @@ Cluster 3: players that belong to: vol2, weight2, sens2, speed 5, hrz2
 &nbsp;
 
     *Random Forest, gridsearched parameters:*
-    Best Params: {'bootstrap': True, 'criterion': 'gini', 'max_depth': 3, 'min_samples_leaf': 2, 
-    'min_samples_split': 5, 'n_estimators': 500}
+    Best Params: {'bootstrap': True, 'criterion': 'gini', 'max_depth': 3, 'min_samples_leaf': 2, 'min_samples_split': 5, 'n_estimators': 500}
     Test Accuracy:0.669
     Train Accuracy:0.67  
 
@@ -202,8 +199,7 @@ Cluster 3: players that belong to: vol2, weight2, sens2, speed 5, hrz2
     Best Parameters: {'metric': 'euclidean', 'n_neighbors': 3, 'weights': 'uniform'}
     Test Accuracy: 0.64
     Train Accuracy: 0.665
-    sfs Chosen Features:['wght1 rifler', 'wght1+hrz1 rifler', '1 rifler', 'hght3 rifler', 'hrz2 awper', 
-    '6.0 awper', 'Zowie G-SR awper', '3 awper']
+    sfs Chosen Features:['wght1 rifler', 'wght1+hrz1 rifler', '1 rifler', 'hght3 rifler', 'hrz2 awper', '6.0 awper', 'Zowie G-SR awper', '3 awper']
     
   
     
@@ -218,13 +214,11 @@ Cluster 3: players that belong to: vol2, weight2, sens2, speed 5, hrz2
 ### Possible Recommendations of equipment/settings to use:
 *If you are a rifler:*
 
-Use lighter mice or the Logitech g pro x superlight, avoid large mice, or stick to middle ground in terms of mouse dimensions and sensitivity while using the most popular refresh rate(144-240hz)/ aspect ratio(4:03)/ mousepad speed(5) of the rest of the sample.
+Use lighter mice or the Logitech g pro x superlight, avoid larger sized mice.
 
 This is because players using certain features have a significant imbalance in high/low scoring players. The following features all passed the (lenient) chi2 test with the scored_high_spotted target, but also have at least 15 players using them: 
 
-The Logitech g pro x superlight and weight1, (the Logitech g pro x superlight accounts for most of the mice in the weight1 bin).  
-
-cluster 1: Players that belong to: (vol2, weight2, sens2, speed 5, hrz1, more likely to use (1280x960, 4:03)). Note that logitech g pro x superlight players do not fall into this cluster due to the weight2 bin. These are all the center bins or most popular settings. Sticking in the middle or to the norm may be beneficial.
+The Logitech g pro x superlight, weight1, clust1 (the Logitech g pro x superlight accounts for most of the mice in the weight1 bin and cluster 1) tend to have an imbalance favoring high-scoring players.  
 
 More players using features hght3, wth3, vol3, and clust2 rifler (which contains vol3, weight3), tend to have an imbalance favoring low-scoring players.  
 
@@ -244,5 +238,4 @@ However, we can still only guess who is a high-scoring player with 67.2% accurac
 * We are relying on Leetify's accuracy scoring system
 * We are relying on the mouse measurements of one source
 * Even if these results were certain and represent the whole professional player population, they may not apply to the average player. 
-
 
