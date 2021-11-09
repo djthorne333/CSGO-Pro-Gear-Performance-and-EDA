@@ -4,7 +4,7 @@
 
 #### Author: datadave333@gmail.com
 
-
+#### FILES: CSGO Gear EDA and Modeling.ipynb is the project notebook, _scrape.py files are what I used for scraping, and the one csv file contains the 118 players' gear/stats.
     
 # Project Goals: 
     
