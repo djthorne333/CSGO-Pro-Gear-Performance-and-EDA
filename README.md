@@ -3,7 +3,7 @@
 # Exploratory Data Analysis of Professional (CS:GO) Gamer's Gear and Settings, and Modeling Player Accuracy  Performance  
 
 
-#### Author: datadave333@gmail.com
+#### Author: Thorneinsight@gmail.com
 
 #### FILES: CSGO Gear EDA and Modeling.ipynb is the project notebook, _scrape.py files are what I used for scraping, and the one csv file contains the 118 players' gear/stats.
     
