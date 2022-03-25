@@ -1,5 +1,5 @@
 # Exploratory Data Analysis of Professional (CS:GO) Gamer's Gear and Settings, and Modeling Player Accuracy  Performance  
-#### Author: Thorneinsight@gmail.com
+## Author: Thorneinsight@gmail.com
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # NOTE: Currently Github is not rendering all of the outputs within the notebook, although plots and images seem to work. Please refrain from clicking on the .ipynb file and instead paste the link of the .ipynb file within the repo to https://nbviewer.org/ in order to view the notebook as it was meant to be viewed.
@@ -8,7 +8,7 @@
 
 
 
-#### FILES: CSGO Gear EDA and Modeling.ipynb is the project notebook, _scrape.py files are what I used for scraping, and the one csv file contains the 118 players' gear/stats.
+## FILES: CSGO Gear EDA and Modeling.ipynb is the project notebook, _scrape.py files are what I used for scraping, and the one csv file contains the 118 players' gear/stats.
     
 # Project Goals: 
     
