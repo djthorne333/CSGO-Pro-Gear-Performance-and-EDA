@@ -1,6 +1,8 @@
 # CS:GO-Pro-Gear-Performance-Repo
 
-# NOTE: Sometimes Github decides not to render the output of a notebook. If this happens, paste the link of the .ipynb file within the repo to https://nbviewer.org/
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# NOTE: Currently Github is not rendering all of the outputs within the notebook, although plots and images seem to work. Please refrain from clicking on the .ipynb file and instead paste the link of the .ipynb file within the repo to https://nbviewer.org/ in order to view the notebook as it was meant to be viewed.
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 # Exploratory Data Analysis of Professional (CS:GO) Gamer's Gear and Settings, and Modeling Player Accuracy  Performance  
 
