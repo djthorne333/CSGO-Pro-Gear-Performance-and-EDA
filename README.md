@@ -1,7 +1,7 @@
 # Exploratory Data Analysis of Professional (CS:GO) Gamer's Gear and Settings, and Modeling Player Accuracy  Performance  
 ## Author: Thorneinsight@gmail.com
 
-# ! ! ! ! NOTE: Currently Github is not rendering all of the outputs within the notebook, although plots and images seem to work. Please refrain from clicking on the .ipynb file and instead visit https://nbviewer.org/github/djthorne333/CSGO-Pro-Gear-Performance--Repo/blob/main/CSGO%20Gear%20EDA_and_Modeling.ipynb in order to view the notebook as it was meant to be viewed.
+# ⚠️ NOTE: Currently Github is not rendering all of the outputs within the notebook, although plots and images seem to work. Please refrain from clicking on the .ipynb file and instead visit https://nbviewer.org/github/djthorne333/CSGO-Pro-Gear-Performance--Repo/blob/main/CSGO%20Gear%20EDA_and_Modeling.ipynb in order to view the notebook as it was meant to be viewed.
 
 
 
