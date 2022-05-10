@@ -7,7 +7,7 @@
 
 
 ## FILES: CSGO Gear EDA and Modeling.ipynb is the project notebook, _scrape.py files are what I used for scraping, and the one csv file contains the 118 players' gear/stats.
-    
+
 # Project Goals: 
     
 * Describe Player equipment and setting choices at the pro level, including frequent combinations of equipment and settings.   
@@ -111,10 +111,10 @@ Mousepad speeds are written as float values, 1.0-6.0, while clusters are written
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*A large imbalance of players use the logitech g pro wireless and g pro superlight over other mice. The current market trend in mouse weight is to make mice as light as possible, often under 60g. Most csgo pro players evidently use heavier mice, at least relative to this trend (75% of players above 63g). Similarly players tend not to lean towards using smaller mice, as mean volume falls around what would be considered a medium sized mouse. Mean edpi is around 886. Most players use mousepads with slower speeds/higher control compared to all options on the market, the top four being the Steelseries qck heavy, Steelseries qck+, Zowie G-SR, and logitech G640. Almost half of players use one of the top 2 monitor settings:(1280x960, 4:03), or (1024x768, 4:03). Most players use over 144hz. Low sensitivity users may seem to prefer the monitor settings: (1920x1080, 16:09) more so than players using other sensitivities. No other interpretable patterns were found in terms of players choosing one gear/setting while using another. There are over three times as many riflers as awpers. More awpers tend to use edpi's above the median value of the dataset than not. Awpers also tend to have greater accuracy scores. Just as many Awpers use the logitech G Pro X Superlight as every other mouse. Most Players use the following gear/settings: 90% of players use refresh rates of 144-240hz, 74% of players medium-sized mice (mice that fit in a box 300-360 cm^3), 74% of players use aspect ratio 4:03, 60% of players use a mousepad surface speed/control rating of 5.0. There is no combination of features that over 50% of players use (outside of combinations of those features). Players could not be separated into well defined clusters based on original dataset features, left as numerical, evaluated based on cluster silhouette scores.*
   
     
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*The following are features passing a chi2 test performed on all features created with respect to whether the player is above or below the median accuracy score of their role(awper/rifler). This displays all features scoring at most p-value=0.1. Note that 0.1 is slightly lenient and that chi2 tests are not reliable on features with fewer players. Some of these features contain only 3 players. Note also that many of the pairs of features created from frequent patterns implicitly describe other individual features, and that many of these features are correlated. A positive result means that over all players that use this feature, more of them are high-scorers than expected given the distributions. These features were used for feature selection during modeling. The visualization displays how many players score above(1)/below(0) the median accuracy of their role when using(1)/not(0) using each feature. Bin and cluster interpretation is written below.*  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*The following are features passing a chi2 test performed on all features created with respect to whether the player is above or below the median accuracy score of their role(awper/rifler). This displays all features scoring at most p-value=0.1. Note that 0.1 is slightly lenient and that chi2 tests are not reliable on features with fewer players. Some of these features contain only 3 players. Note also that many of the pairs of features created from frequent patterns implicitly describe other individual features, and that many of these features are correlated. A positive result means that over all players that use this feature, more of them are high-scorers than expected given the distributions. These features were used for feature selection during modeling. The visualization displays how many players score above(1)/below(0) the median accuracy of their role when using(1)/not using(0) each feature. Bin and cluster interpretation is written below.*  
 
     
-![image](https://user-images.githubusercontent.com/73368743/141010066-86f6fccf-a806-4a47-920b-96637aed050f.png)  
+![image](https://user-images.githubusercontent.com/73368743/167541369-15263a61-f425-4fcb-b09e-2738bde0008f.png) 
 
     
 **Bin Interpretation**: (bins are numbered starting from 1, 1<2<3)    
@@ -153,7 +153,7 @@ Cluster 3: players that belong near: vol2, weight2, sens2, speed 5, hrz2
 ### Modeling Results:
 **---Managed an increase in model performance of 17% through feature creation (binning, frequent patterns, clustering, separation by player role), filter methods(chi2 tests with target), and wrapper methods (sequential feature selection). Original Accuracies: Around 50%. Best Performing Model: Logistic Regression, Test Accuracy: 0.672, Train Accuracy: 0.678.**
     
-*All Models were evaluated on average test and train accuracy scores across all splits of cross validation with k = 50 (nearly leave-one-out). Those average scores were also averaged together anywhere from 10 to 30 times.** 
+*All Models were evaluated on average test and train accuracy scores across all splits of cross validation with k = 50 (nearly leave-one-out). Those average scores were also averaged together over anywhere from 10 to 30 runs with cv shuffle=True.* 
 
     
 #### Modeling using original features:  
@@ -193,22 +193,19 @@ Cluster 3: players that belong near: vol2, weight2, sens2, speed 5, hrz2
 
     *Random Forest, gridsearched parameters:*
     Best Params: {'bootstrap': True, 'criterion': 'gini', 'max_depth': 3, 'min_samples_leaf': 2, 'min_samples_split': 5, 'n_estimators': 500}
-    Test Accuracy:0.669
-    Train Accuracy:0.67  
+    Test Accuracy:0.64
+    Train Accuracy:0.665  
 
     *K Nearest Neighbors, gridsearched parameters:*
-    Best Parameters: {'metric': 'euclidean', 'n_neighbors': 3, 'weights': 'uniform'}
+    Best Parameters: {'metric': 'hamming', 'n_neighbors': 3, 'weights': 'uniform'}
     Test Accuracy: 0.64
     Train Accuracy: 0.665
-    sfs Chosen Features:['wght1 rifler', 'wght1+hrz1 rifler', '1 rifler', 'hght3 rifler', 'hrz2 awper', '6.0 awper', 'Zowie G-SR awper', '3 awper']
+    sfs Chosen Features:['wght1 rifler', 'Glorious Model D rifler', 'wght1+hrz1 rifler',
+    '1 rifler', 'hght3 rifler', 'hrz2 awper', '6.0 awper',
+    'Zowie G-SR awper', '3 awper']
     
   
     
-
-    
-    
-    
-
     
     
 
